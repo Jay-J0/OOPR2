@@ -1,0 +1,4 @@
+#ifndef QTEXTBROWSER_H
+#define QTEXTBROWSER_H
+
+#endif // QTEXTBROWSER_H

@@ -1,0 +1,16 @@
+debug/main.o
+debug/CodeSlot.o
+debug/Deur.o
+debug/Draaideur.o
+debug/Drukbox.o
+debug/HallSensor.o
+debug/HerkenningsSlot.o
+debug/IdKaart.o
+debug/KaartSlot.o
+debug/Schuifdeur.o
+debug/SleutelSlot.o
+debug/Slot.o
+debug/SlotException.o
+debug/mainwindow.o
+debug/sensor.o
+debug/moc_mainwindow.o
