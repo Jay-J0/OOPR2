@@ -15,6 +15,8 @@
 #include "HerkenningsSlot.h"
 #include "Drukbox.h"
 
+#include "SlotException.h"
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -79,9 +81,16 @@ void MainWindow::on_schuifdeurKnop_clicked(){
         std::string waardeID = ui->lineGeefIDvd->text().toStdString();
 
         for (auto& slot : deuren[0]->getSlot()) {
+            if (KaartSlot* kaartSlot = dynamic_cast<KaartSlot*>(slot)) {
+                try {
+                    kaartSlot->ontgrendel(waardeID);
+                } catch (SlotException& e) {
+                    e.generateExceptionMessage();
+                }
+                continue;
+            }
             slot->ontgrendel(eenSleutel1);
             slot->ontgrendel(eenSleutel2);
-            slot->ontgrendel(waardeID);
         }
 
         for (auto& slot : deuren[0]->getSlot()) {
@@ -190,8 +199,6 @@ void MainWindow::on_idErbij_clicked(){
             if (KaartSlot* kaartSlot = dynamic_cast<KaartSlot*>(slot)) {
                 // Als het een KaartSlot is, voeg de ID-kaart toe
                 kaartSlot->voegIdKaartToe(nieuweIDkaart);
-
-                nieuweIDkaart->geefToegang(kaartSlot);
             }
         }
     }
@@ -213,7 +220,7 @@ void MainWindow::on_idEraf_clicked(){
         for (auto& slot : sloten) {
             // Controleer of dit slot een KaartSlot is
             if (KaartSlot* kaartSlot = dynamic_cast<KaartSlot*>(slot)) {
-                // Als het een KaartSlot is, probeer de ID-kaart te verwijderen
+                // Als het een KaartSlot is, verwijder IDkaart
                 kaartSlot->verwijderIdKaart(verwijderIDkaart);
 
             }
@@ -223,12 +230,54 @@ void MainWindow::on_idEraf_clicked(){
     ui->lineUniekID->setText("");
 }
 
-std::string MainWindow::on_heeftToegang_clicked(){
+void MainWindow::on_heeftToegangButton_clicked(){
     std::string heeftToegang = ui->lineGeefIDvd->text().toStdString();
-    return heeftToegang;
+
+    if(!ui->lineGeefIDvd->text().isEmpty()){
+        // Loop door alle deuren
+        for (const auto& deur : deuren) {
+        // Krijg de lijst van sloten voor deze deur
+            std::list<Slot*> sloten = deur->getSlot();
+
+        // Loop door alle sloten
+            for (auto& slot : sloten) {
+            // Controleer of dit slot een KaartSlot is
+                if (KaartSlot* kaartSlot = dynamic_cast<KaartSlot*>(slot)) {
+                // Haal de ID-kaart op met de opgegeven ID
+                    IdKaart* gevondenIDkaart = kaartSlot->getIdKaart(heeftToegang);
+
+                    if (gevondenIDkaart != nullptr) {
+                        //Geef toegang aan ID
+                        gevondenIDkaart->geefToegang(kaartSlot);
+                    }
+                }
+            }
+        }
+    }
 }
 
-std::string MainWindow::on_geenToegang_clicked(){
+void MainWindow::on_geenToegangButton_clicked(){
     std::string geenToegang = ui->lineGeefIDvd->text().toStdString();
-    return geenToegang;
+
+    if(!ui->lineGeefIDvd->text().isEmpty()){
+        // Loop door alle deuren
+        for (const auto& deur : deuren) {
+            // Krijg de lijst van sloten voor deze deur
+            std::list<Slot*> sloten = deur->getSlot();
+
+            // Loop door alle sloten
+            for (auto& slot : sloten) {
+                // Controleer of dit slot een KaartSlot is
+                if (KaartSlot* kaartSlot = dynamic_cast<KaartSlot*>(slot)) {
+                    // Haal de ID-kaart op met de opgegeven ID
+                    IdKaart* gevondenIDkaart = kaartSlot->getIdKaart(geenToegang);
+
+                    if (gevondenIDkaart != nullptr) {
+                        //Verwijder toegang voor ID
+                        gevondenIDkaart->verwijderToegang(kaartSlot);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -15,6 +15,7 @@ public:
     virtual void voegIdKaartToe(IdKaart*);
     virtual void verwijderIdKaart(std::string);
     virtual std::string getPlaats();
+    virtual IdKaart* getIdKaart(std::string);
 private:
     std::string plaats;
     bool vergrendeld;

@@ -1,7 +1,6 @@
 #ifndef DEUR_H
 #define DEUR_H
 
-
 #include <list>
 
 class Slot;

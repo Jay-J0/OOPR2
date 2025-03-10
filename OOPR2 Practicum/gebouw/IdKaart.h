@@ -19,7 +19,6 @@ private:
     std::vector<KaartSlot*> toegang;
     std::string naamEigenaar;
     std::string adresEigenaar;
-
 };
 
 #endif // IDKAART_H

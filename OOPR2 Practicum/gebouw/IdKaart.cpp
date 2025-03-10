@@ -19,23 +19,21 @@ void IdKaart::geefToegang(KaartSlot *eenKaartSlot) {
 }
 
 void IdKaart::verwijderToegang(KaartSlot *eenKaartSlot) {
-    for (auto item = toegang.begin(); item != toegang.end(); item++) {
-
-        if (*item == eenKaartSlot) {
-            toegang.erase(item);
+    for (auto toegangIterator = toegang.begin(); toegangIterator != toegang.end(); ) {
+        if (*toegangIterator == eenKaartSlot) {
+            toegangIterator = toegang.erase(toegangIterator); // item bijwerken naar het volgende element na verwijdering
+        } else {
+            ++toegangIterator; // Ga naar het volgende element
         }
     }
-
 }
 
 bool IdKaart::heeftToegangTot(KaartSlot *eenKaartSlot) {
-    for (std::vector<KaartSlot*>::iterator item = toegang.begin(); item != toegang.end(); item++) {
-        if (*item == eenKaartSlot) {
+    for (std::vector<KaartSlot*>::iterator toegangIterator = toegang.begin(); toegangIterator != toegang.end(); toegangIterator++) {
+        if (*toegangIterator == eenKaartSlot) {
             return true;
         }
     }
-
-    throw SlotException(this, eenKaartSlot);
 
     return false;
 }

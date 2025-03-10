@@ -1,7 +1,6 @@
 #ifndef HALLSENSOR_H
 #define HALLSENSOR_H
 
-
 #include "Sensor.h"
 
 class HallSensor : public Sensor {

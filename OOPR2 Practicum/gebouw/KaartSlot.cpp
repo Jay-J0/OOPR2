@@ -20,11 +20,16 @@ void KaartSlot::ontgrendel(std::string eenSleutel) {
     auto idIterator = idKaarten.find(eenSleutel);
 
     if (idIterator->second == nullptr){
+        SlotException exception(nullptr, this, eenSleutel);
+        throw exception;
         return;
     }
 
     if (idIterator->second->heeftToegangTot(this)){
         this->vergrendeld = false;
+    }else{
+        SlotException exception(idIterator->second, this, eenSleutel);
+        throw exception;
     }
 }
 
@@ -44,3 +49,13 @@ void KaartSlot::verwijderIdKaart(std::string eenId){
 std::string KaartSlot::getPlaats(){
     return this->plaats;
 }
+
+IdKaart* KaartSlot::getIdKaart(std::string id) {
+    auto idIterator = idKaarten.find(id);
+    if (idIterator != idKaarten.end()) {
+        return idIterator->second;
+    } else {
+        return nullptr; // ID-kaart niet gevonden
+    }
+}
+

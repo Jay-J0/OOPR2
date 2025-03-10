@@ -49,6 +49,8 @@ public:
     QLineEdit *lineAdresID;
     QTextEdit *textEdit;
     QLineEdit *lineGeefIDvd;
+    QPushButton *heeftToegangButton;
+    QPushButton *geenToegangButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -92,7 +94,7 @@ public:
         textBrowser_3->setGeometry(QRect(510, 60, 41, 21));
         textBrowser_4 = new QTextBrowser(centralWidget);
         textBrowser_4->setObjectName("textBrowser_4");
-        textBrowser_4->setGeometry(QRect(430, 300, 241, 71));
+        textBrowser_4->setGeometry(QRect(390, 290, 281, 91));
         geautoriseerd = new QPushButton(centralWidget);
         geautoriseerd->setObjectName("geautoriseerd");
         geautoriseerd->setGeometry(QRect(170, 320, 111, 24));
@@ -126,6 +128,12 @@ public:
         lineGeefIDvd = new QLineEdit(centralWidget);
         lineGeefIDvd->setObjectName("lineGeefIDvd");
         lineGeefIDvd->setGeometry(QRect(560, 210, 101, 24));
+        heeftToegangButton = new QPushButton(centralWidget);
+        heeftToegangButton->setObjectName("heeftToegangButton");
+        heeftToegangButton->setGeometry(QRect(570, 240, 80, 24));
+        geenToegangButton = new QPushButton(centralWidget);
+        geenToegangButton->setObjectName("geenToegangButton");
+        geenToegangButton->setGeometry(QRect(570, 270, 80, 24));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName("menuBar");
@@ -182,17 +190,25 @@ public:
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:700;\">WACHTWOORDEN &amp; INSTRUCTIES</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" text-decoration: underline;\">De Voordeur (vd) heeft twee sloten:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" text-decoration: underline;\">De Voordeur (vd) heeft drie sloten:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
                         "indent:0px;\">Wachtwoord vd = W</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Wachtwoord d1 = K</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">ID Authenticatie</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" text-decoration: underline;\">ID AUTHENTICATIE INSTRUCTIES</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Voeg een ID kaart toe met 'ID Kaart+'</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Verwijder een ID kaart met 'ID Ka"
+                        "art -'</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Vul het unieke ID van de kaart in op de 'Line Edit' naast 'vd'</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Geef deze ID 'Toegang' of 'Geen Toegang'</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" text-decoration: underline;\">De binnen deur 1 (d1) heeft twee sloten:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Wachtwoord d1 = 1</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Wachtwoord d2 = 2</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+                        "\">Wachtwoord d2 = 2</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-""
-                        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" text-decoration: underline;\">De binnen deur 2 (d2) heeft twee sloten:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" text-decoration: underline;\">De binnen deur 2 (d2) heeft twee sloten:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Wachtwoord d2 = 3</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Autorisatie</p></body></html>", nullptr));
         geautoriseerd->setText(QCoreApplication::translate("MainWindow", "Geautoriseerd", nullptr));
@@ -206,9 +222,11 @@ public:
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.  Uniek ID</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.  Naam</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1. Uniek ID</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2. Naam</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3. Adres</p></body></html>", nullptr));
+        heeftToegangButton->setText(QCoreApplication::translate("MainWindow", "Toegang", nullptr));
+        geenToegangButton->setText(QCoreApplication::translate("MainWindow", "Geen Toegang", nullptr));
     } // retranslateUi
 
 };

@@ -6,7 +6,6 @@
 
 #include <memory>
 
-
 namespace Ui {
 class MainWindow;
 }
@@ -30,8 +29,8 @@ private slots:
     void on_nietGeautoriseerd_clicked();
     void on_idErbij_clicked();
     void on_idEraf_clicked();
-    std::string on_heeftToegang_clicked();
-    std::string on_geenToegang_clicked();
+    void on_heeftToegangButton_clicked();
+    void on_geenToegangButton_clicked();
     void isGegeautoriseerd(bool);
 
 private:

@@ -9,9 +9,10 @@ class KaartSlot;
 
 class SlotException : public std::exception {
 public:
-    SlotException(IdKaart *idkaart, KaartSlot *kaartslot);
+    SlotException(IdKaart *idkaart, KaartSlot *kaartslot, std::string id);
     virtual std::string kaartVanBinnendringer();
     virtual std::string plaatsVanHetSlot();
+    virtual void generateExceptionMessage();
 private:
     std::string kaartId;
     std::string slotPlaats;

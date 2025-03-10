@@ -48,11 +48,13 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "on_nietGeautoriseerd_clicked",
     "on_idErbij_clicked",
     "on_idEraf_clicked",
+    "on_heeftToegangButton_clicked",
+    "on_geenToegangButton_clicked",
     "isGegeautoriseerd"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[26];
     char stringdata0[11];
     char stringdata1[22];
     char stringdata2[1];
@@ -63,7 +65,9 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata7[29];
     char stringdata8[19];
     char stringdata9[18];
-    char stringdata10[18];
+    char stringdata10[30];
+    char stringdata11[29];
+    char stringdata12[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -79,7 +83,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(121, 28),  // "on_nietGeautoriseerd_clicked"
         QT_MOC_LITERAL(150, 18),  // "on_idErbij_clicked"
         QT_MOC_LITERAL(169, 17),  // "on_idEraf_clicked"
-        QT_MOC_LITERAL(187, 17)   // "isGegeautoriseerd"
+        QT_MOC_LITERAL(187, 29),  // "on_heeftToegangButton_clicked"
+        QT_MOC_LITERAL(217, 28),  // "on_geenToegangButton_clicked"
+        QT_MOC_LITERAL(246, 17)   // "isGegeautoriseerd"
     },
     "MainWindow",
     "on_sensor_act_clicked",
@@ -91,6 +97,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "on_nietGeautoriseerd_clicked",
     "on_idErbij_clicked",
     "on_idEraf_clicked",
+    "on_heeftToegangButton_clicked",
+    "on_geenToegangButton_clicked",
     "isGegeautoriseerd"
 };
 #undef QT_MOC_LITERAL
@@ -103,7 +111,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -111,17 +119,21 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   68,    2, 0x08,    1 /* Private */,
-       3,    0,   69,    2, 0x08,    2 /* Private */,
-       4,    0,   70,    2, 0x08,    3 /* Private */,
-       5,    0,   71,    2, 0x08,    4 /* Private */,
-       6,    0,   72,    2, 0x08,    5 /* Private */,
-       7,    0,   73,    2, 0x08,    6 /* Private */,
-       8,    0,   74,    2, 0x08,    7 /* Private */,
-       9,    0,   75,    2, 0x08,    8 /* Private */,
-      10,    1,   76,    2, 0x08,    9 /* Private */,
+       1,    0,   80,    2, 0x08,    1 /* Private */,
+       3,    0,   81,    2, 0x08,    2 /* Private */,
+       4,    0,   82,    2, 0x08,    3 /* Private */,
+       5,    0,   83,    2, 0x08,    4 /* Private */,
+       6,    0,   84,    2, 0x08,    5 /* Private */,
+       7,    0,   85,    2, 0x08,    6 /* Private */,
+       8,    0,   86,    2, 0x08,    7 /* Private */,
+       9,    0,   87,    2, 0x08,    8 /* Private */,
+      10,    0,   88,    2, 0x08,    9 /* Private */,
+      11,    0,   89,    2, 0x08,   10 /* Private */,
+      12,    1,   90,    2, 0x08,   11 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -160,6 +172,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_idEraf_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_heeftToegangButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_geenToegangButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'isGegeautoriseerd'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>
@@ -181,7 +197,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_nietGeautoriseerd_clicked(); break;
         case 6: _t->on_idErbij_clicked(); break;
         case 7: _t->on_idEraf_clicked(); break;
-        case 8: _t->isGegeautoriseerd((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 8: _t->on_heeftToegangButton_clicked(); break;
+        case 9: _t->on_geenToegangButton_clicked(); break;
+        case 10: _t->isGegeautoriseerd((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     }
@@ -206,13 +224,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 11)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 11;
     }
     return _id;
 }
